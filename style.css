@@ -1,0 +1,1472 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg-dark: rgba(0,0,0,0.78); /* slightly transparent dark */
+  --bg-darker: rgba(10,10,10,0.62);
+    --text-primary: #ffffff;
+    --text-secondary: #666666;
+    --accent-blue: #0037ff;
+    --border-color: #222222;
+    --hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  background-color: rgba(0,0,0,0.85);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('websitebg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(0.3);
+}
+
+/* Navigation */
+nav {
+    background: var(--bg-darker);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--hover-bg);
+}
+
+nav a.active {
+    background: var(--accent-blue);
+    color: white;
+}
+
+/* Fastodo accent (yellow) for optional elements ported from Fastodo styles */
+.bg-yellow { background: #ffd54a; color: #1f1f1f; }
+
+/* Site navigation */
+nav {
+  background: rgba(12,12,12,0.85);
+  padding: 15px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background: linear-gradient(45deg, #ffd700, #ffb347);
+  color: #000;
+}
+
+/* Adjust main content to account for fixed nav */
+.todo-app-scope .app {
+  margin-top: 70px;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+}
+
+h1, h2 {
+  margin: 16px 0;
+  color: white;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.container {
+    background-color: rgba(13, 13, 17, 0.95);
+    padding: 24px 28px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 800px;
+    margin: 28px auto;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-inner {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 16px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.lead {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  display: inline-block;
+}
+
+.feature {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 15px 0;
+  margin-top: 30px;
+}
+
+/* Layout: header / hero / features / footer similar to Wix style */
+.site-header { background: transparent; padding: 18px 12px; }
+.header-inner { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; gap:18px; }
+.logo { font-weight:800; font-size:20px; color:var(--ash-lighter); }
+.main-nav { margin-left: auto; }
+.main-nav a { margin: 0 12px; color:var(--ash-light); text-decoration:none; }
+.header-cta { margin-left: 18px; }
+
+.hero { padding: 56px 12px; text-align:center; }
+.hero-inner { max-width: 900px; margin: 0 auto; }
+.hero h1 { font-size: 56px; line-height:1.02; margin-bottom: 12px; color:var(--ash-lighter); font-weight:800; }
+.hero .lead { font-size:18px; color:var(--ash-light); margin-bottom:18px; }
+.hero-ctas .btn { margin-right:10px; }
+
+/* Fastodo-like hero CTA styles */
+.hero-ctas { margin-top: 18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn-lg { padding: 14px 20px; font-size:18px; border-radius:12px; }
+.rounded-xl { border-radius: 12px; }
+.drop-shadow-md { box-shadow: 0 8px 24px rgba(0,0,0,0.16); }
+
+.container-wide { max-width:1100px; margin: 0 auto; padding: 0 12px; }
+.features { padding: 24px 0 48px 0; }
+.feature-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:18px; margin-top:18px; }
+.feature { background: rgba(255,255,255,0.02); padding:18px; border:1px solid var(--ash); border-radius:10px; }
+.feature h3 { margin:0 0 8px 0; color:var(--ash-lighter); }
+.feature p { margin:0; color:var(--ash-light); }
+
+.about { padding: 0 0 48px 0; }
+
+.site-footer { border-top:1px solid var(--ash); padding:18px 0; margin-top:34px; }
+.footer-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding: 0 12px; color:var(--ash-light); }
+.footer-links a { color:var(--ash-light); margin-left:12px; }
+
+/* Buttons */
+.btn { display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; position:relative; isolation:isolate; }
+.btn-primary { background: var(--accent-1, #8b6ef5); color: #0f0f14; box-shadow: 0 0 0 0 rgba(139,110,245,0.45); border: 1px solid rgba(139,110,245,0.35); }
+.btn-ghost { background:transparent; color:var(--text-0); border:1px solid rgba(139,110,245,0.35); }
+
+/* Circular glow for all buttons */
+.btn::before, button::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(60px 60px at center, rgba(139,110,245,0.35), rgba(59,42,122,0.15) 60%, transparent 70%);
+  filter: blur(6px);
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Hover/focus intensify glow and adjust bg */
+.btn:hover, .btn:focus, button:hover, button:focus {
+  box-shadow: 0 0 0 2px rgba(139,110,245,0.25), 0 10px 24px rgba(59,42,122,0.35);
+}
+.btn-primary:hover, .btn-primary:focus { background: var(--accent-0, #6b4fd3); color: #fff; }
+
+/* Base <button> element styling (global buttons) */
+button {
+  padding: 10px 16px;
+  margin-left: 10px;
+  border: 1px solid rgba(139,110,245,0.35);
+  background-color: var(--accent-1, #8b6ef5);
+  color: #0f0f14;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 120ms ease, box-shadow 0.2s ease;
+}
+
+button:hover { background-color: var(--accent-0, #6b4fd3); color:#fff; }
+button:active { transform: translateY(1px); }
+
+@media (max-width:600px) {
+  .hero h1 { font-size:28px; }
+  .header-inner { flex-wrap:wrap; }
+  .main-nav { order:3; width:100%; text-align:center; margin-top:12px; }
+  .header-cta { order:2; margin-left:0; }
+}
+
+.input-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+input[type="text"], input[type="search"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid var(--ash);
+  border-radius: 8px;
+  font-size: 15px;
+  background: rgba(255,255,255,0.03);
+  color: var(--ash-light);
+}
+
+button {
+  padding: 10px 14px;
+  margin-left: 10px;
+  border: none;
+  background-color: #2575fc;
+  color: var(--ash-lighter);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 120ms ease;
+}
+
+button:hover { background-color: #1e5bd8; }
+
+ul { list-style-type: none; padding: 0; margin: 0; }
+
+
+
+/* Calendar Column Styles */
+.calendar-section {
+  background: rgba(15, 15, 20, 0.98) !important;
+  padding: 24px !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  min-width: 300px !important;
+}
+
+.calendar-section h3 {
+  color: var(--text-0);
+  font-size: 18px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Home button styles */
+.home-btn-fixed {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  background: linear-gradient(45deg, #ffd700, #ffb347) !important;
+  color: #000 !important;
+  border: none !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
+}
+
+.home-btn-fixed:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* To-do widget styles */
+.todo-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(37,117,252,0.25);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.todo-toggle .todo-badge {
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* small nav counter for completed today */
+.nav-todo-count {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 13px;
+  color: #d0f0d6; /* pale green */
+  font-weight: 700;
+}
+
+.todo-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 360px;
+  max-width: calc(100% - 40px);
+  transform: translate(-50%, -48%) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 3;
+}
+
+.todo-modal.open { opacity: 1; transform: translate(-50%, -50%) scale(1); pointer-events: auto; }
+
+/* Expanded modal when opened from ribbon/nav (larger, more app-like) */
+.todo-modal.expanded {
+  width: 720px;
+  max-width: calc(100% - 40px);
+}
+
+.todo-card {
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.todo-header { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid #eee; }
+.todo-header h3 { margin:0; font-size:16px; }
+.todo-close { background:none; border:none; cursor:pointer; font-size:16px; }
+.todo-body { padding:12px; }
+.todo-body .input-section { margin-bottom:10px; }
+.todo-body input { width: 65%; }
+.todo-body button { margin-left:8px; }
+.todo-body ul { max-height: 260px; overflow:auto; }
+
+/* Small responsive tweaks */
+@media (min-width: 900px) {
+  .container { width: 420px; }
+  /* enable fixed attachment on larger screens for a nicer effect when an image is present */
+  body { background-attachment: fixed; }
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+    padding: 20px;
+  }
+  
+  .todo-input {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Scoped light app styles for To-Do App page only */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.todo-app {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 53px); /* Adjust for nav height */
+    background: var(--bg-dark);
+}
+
+/* Calendar Section */
+.calendar-section {
+    width: 320px;
+    background: var(--bg-darker);
+    border-right: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.calendar-section h2 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Selected Date Display */
+#selected-date-display {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 16px 0;
+    padding: 0 8px;
+}
+
+.calendar-section h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Flatpickr Calendar Customization */
+.flatpickr-calendar {
+    background: var(--bg-dark) !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    font-family: inherit !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.flatpickr-months {
+    background: var(--bg-dark) !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.flatpickr-month {
+    height: auto !important;
+    color: var(--text-primary) !important;
+}
+
+.flatpickr-current-month {
+    padding: 8px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.flatpickr-current-month .cur-month {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+}
+
+.flatpickr-current-month .cur-year {
+    font-weight: 500 !important;
+    color: var(--text-primary) !important;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    top: 8px !important;
+    height: auto !important;
+    padding: 0 !important;
+    color: var(--text-secondary) !important;
+    fill: var(--text-secondary) !important;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover {
+    color: var(--text-primary) !important;
+    fill: var(--text-primary) !important;
+}
+
+.flatpickr-weekdays {
+    background: var(--bg-dark) !important;
+    margin-bottom: 8px !important;
+}
+
+.flatpickr-weekday {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    background: var(--bg-dark) !important;
+}
+
+.flatpickr-days {
+    border: none !important;
+    padding: 0 !important;
+}
+
+.dayContainer {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+.flatpickr-day {
+    color: var(--text-primary) !important;
+    border-radius: 6px !important;
+    background: transparent !important;
+    border: none !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    margin: 2px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    width: calc(100%/7 - 4px) !important;
+    flex-basis: calc(100%/7 - 4px) !important;
+    max-width: calc(100%/7 - 4px) !important;
+}
+
+.flatpickr-day:hover {
+    background: var(--hover-bg) !important;
+}
+
+.flatpickr-day.selected {
+    background: var(--accent-blue) !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.flatpickr-day.today {
+    border: 1px solid var(--border-color) !important;
+    background: transparent !important;
+}
+
+.flatpickr-day.today:hover {
+    background: var(--hover-bg) !important;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: var(--text-secondary) !important;
+    opacity: 0.5 !important;
+}
+
+.flatpickr-day.disabled {
+    color: var(--text-secondary) !important;
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+}
+
+.todo-app-scope::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('image/todo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  filter: brightness(0.8);
+  /* Purple/Black/Grey theme variables */
+  --bg-0: rgba(11,11,15,0.75);   /* near-black with slight blue, semi-transparent */
+  --bg-1: rgba(18,18,26,0.68);   /* deep charcoal, slightly translucent */
+  --bg-2: rgba(26,26,36,0.62);   /* dark grey with purple tint, translucent */
+  --text-0: #ececf1; /* light grey text */
+  --muted: #a1a1b3;  /* muted grey */
+  --accent-0: #6b4fd3; /* primary purple */
+  --accent-1: #8b6ef5; /* lighter purple */
+  --accent-2: #3b2a7a; /* dark purple for hovers */
+}
+
+.todo-app-scope .app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: rgba(13, 13, 17, 0.97);
+  color: var(--text-0);
+  width: 95%;
+  max-width: 1200px;
+  height: calc(100vh - 40px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* subtle gold accent bar */
+.todo-app-scope .app:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #3b2a7a, #6b4fd3, #8b6ef5);
+}
+
+/* Sidebar */
+.todo-app-scope .sidebar {
+  background: rgba(15, 15, 20, 0.95);
+  padding: 24px;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.todo-app-scope .sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-app-scope .sidebar-section h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.todo-app-scope .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.todo-app-scope .sidebar-link:hover,
+.todo-app-scope .sidebar-link.active {
+  background: rgba(99, 102, 241, 0.1);
+  color: rgb(99, 102, 241);
+}
+
+.todo-app-scope .sidebar h2, 
+.todo-app-scope .sidebar h3 {
+  color: var(--text-0);
+  margin-bottom: 10px;
+}
+
+.todo-app-scope #task-date {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a36;
+  background: var(--bg-2);
+  color: var(--text-0);
+  font-size: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.todo-app-scope #task-date:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139,110,245,0.45);
+}
+
+.todo-app-scope #selected-date-display {
+  font-weight: 600;
+  color: var(--accent-1);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.todo-app-scope .task-list {
+  list-style: none;
+  padding: 0;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  margin: 20px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.todo-app-scope .task-item {
+  background: rgba(30, 30, 35, 0.6);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  gap: 12px;
+}
+
+.todo-app-scope .task-item.completed {
+  opacity: 0.7;
+  background: rgba(20, 20, 25, 0.4);
+}
+
+.todo-app-scope .task-item.completed .task-text {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.todo-app-scope .task-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.todo-app-scope .priority-btn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.todo-app-scope .priority-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.todo-app-scope .delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.todo-app-scope .delete-btn:hover {
+  opacity: 1;
+  color: #ff4444;
+  transform: scale(1.1);
+}
+
+.todo-app-scope .task-date {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 100px;
+}
+
+.todo-app-scope .no-tasks {
+  text-align: center;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  background: rgba(20, 20, 25, 0.4);
+  border-radius: 12px;
+}
+
+.todo-app-scope #task-list li:hover {
+  background: rgba(35, 35, 40, 0.8);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.todo-app-scope #task-list .task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.todo-app-scope #task-list .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo-app-scope #task-list .checkbox.checked {
+  background: rgb(99, 102, 241);
+  border-color: rgb(99, 102, 241);
+}
+
+.todo-app-scope #task-list .priority {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.todo-app-scope #task-list .priority.high {
+  background: rgba(239, 68, 68, 0.2);
+  color: rgb(239, 68, 68);
+}
+
+.todo-app-scope #task-list .priority.medium {
+  background: rgba(245, 158, 11, 0.2);
+  color: rgb(245, 158, 11);
+}
+
+.todo-app-scope #task-list .priority.low {
+  background: rgba(16, 185, 129, 0.2);
+  color: rgb(16, 185, 129);
+}
+
+.todo-app-scope #task-list li button {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.todo-app-scope button.edit {
+  background: var(--accent-0);
+  color: var(--text-0);
+}
+.todo-app-scope button.delete {
+  background: #5a1c75;
+  color: var(--text-0);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+    background: #000;
+}
+
+.task-header {
+    margin-bottom: 30px;
+}
+
+.task-header h1 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+.task-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 12px;
+}
+
+.task-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 15px;
+    padding: 8px 0;
+}
+
+.task-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.task-input:focus {
+    outline: none;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+}
+
+.add-task-btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+    background: #002ee6;
+    transform: translateY(-1px);
+}
+
+/* Task Sections */
+.task-section {
+    margin-top: 32px;
+}
+
+.task-section h3 {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task-list:empty::after {
+    content: 'No tasks for this date';
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 16px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+/* View Links */
+.views-section {
+    margin-top: 32px;
+}
+
+.view-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.view-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    color: var(--text-primary);
+   background: none;
+   border: none;
+   width: 100%;
+   text-align: left;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+   cursor: pointer;
+}
+
+.view-link:hover {
+    background: var(--hover-bg);
+}
+
+.view-link.active {
+    background: rgba(0, 55, 255, 0.1);
+    color: var(--accent-blue);
+}
+
+.view-icon {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Views Section */
+.views-section {
+    margin-top: 30px;
+}
+
+.views-section h3 {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.view-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.view-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.view-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.view-link.active {
+    background: rgba(0, 55, 255, 0.2);
+    color: #0037ff;
+}
+
+/* Task Sections */
+.task-section {
+    margin-bottom: 40px;
+}
+
+.task-section h3 {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+}
+
+.task-item:hover {
+    border-color: #333;
+}
+
+.task-item.completed {
+    opacity: 0.6;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-checkbox.checked {
+    background: #0037ff;
+    border-color: #0037ff;
+}
+
+.task-text {
+    flex: 1;
+    color: #fff;
+}
+
+.task-date {
+    color: #666;
+    font-size: 13px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.task-actions button:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.star-btn {
+    color: #666 !important;
+    font-size: 18px !important;
+    padding: 4px 8px !important;
+}
+
+.star-btn:hover {
+    color: #ffd700 !important;
+    transform: scale(1.1);
+}
+
+.star-btn.active {
+    color: #ffd700 !important;
+}
+
+.task-item.important {
+    border-left: 3px solid #ffd700;
+    padding-left: 13px;
+}
+
+.todo-app-scope .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.todo-app-scope .page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.todo-app-scope .task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-app-scope .icon-button {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo-app-scope .icon-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Buttons and inputs theme */
+.todo-app-scope .btn.btn-primary,
+.todo-app-scope #add-task {
+  background: var(--accent-1);
+  color: #0f0f14;
+  border: 1px solid rgba(139,110,245,0.35);
+}
+.todo-app-scope .btn.btn-primary:hover,
+.todo-app-scope #add-task:hover {
+  background: var(--accent-0);
+  color: #fff;
+}
+
+/* Circular glow inside todo app as well */
+.todo-app-scope .btn.btn-primary::before,
+.todo-app-scope #add-task::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(60px 60px at center, rgba(139,110,245,0.4), rgba(59,42,122,0.2) 60%, transparent 70%);
+  filter: blur(6px);
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.todo-app-scope #task-input {
+  background: var(--bg-2);
+  border: 1px solid #2a2a36;
+  color: var(--text-0);
+}
+
+.todo-app-scope h1 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.todo-app-scope .task-input {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.todo-app-scope #task-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(20, 20, 25, 0.8);
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+.todo-app-scope #task-input:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(25, 25, 30, 0.9);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.todo-app-scope #add-task {
+  background: rgb(99, 102, 241);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.todo-app-scope #add-task:hover {
+  background: rgb(79, 82, 221);
+  transform: translateY(-1px);
+}
+
+.todo-app-scope #add-task:hover {
+  background: #0056b3;
+}
+
+.todo-app-scope #summary {
+  background: rgba(18, 18, 24, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+  height: 65%;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+}
+
+.todo-app-scope #all-tasks li {
+  background: rgba(25, 25, 30, 0.6);
+  margin-bottom: 10px;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.todo-app-scope #all-tasks li:hover {
+  background: rgba(30, 30, 35, 0.8);
+  transform: translateY(-1px);
+}
+
+.todo-app-scope #all-tasks li span {
+  color: var(--accent-1);
+}
+
+.todo-app-scope ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todo-app-scope ::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+/* Fixed Home button top-right for todo app */
+.todo-app-scope .home-btn-fixed {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .todo-app-scope {
+    padding: 10px;
+  }
+  
+  .todo-app-scope .app {
+    width: 100%;
+    height: calc(100vh - 20px);
+    flex-direction: column;
+  }
+  
+  .todo-app-scope .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #2a2a36;
+    padding: 15px;
+  }
+  
+  .todo-app-scope .main-content {
+    padding: 15px;
+  }
+  
+  .todo-app-scope #task-list {
+    max-height: calc(100vh - 300px);
+  }
+  
+  .todo-app-scope #task-list li {
+    padding: 12px;
+  }
+  
+  .todo-app-scope .task-input {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .todo-app-scope #task-input {
+    width: 100%;
+  }
+  
+  .todo-app-scope #add-task {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Flatpickr calendar theming (scoped) */
+.todo-app-scope .flatpickr-calendar {
+  background: var(--bg-1) !important;
+  border: 1px solid #2a2a36 !important;
+  box-shadow: 0 12px 30px rgba(59,42,122,0.35) !important;
+  color: var(--text-0) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+.todo-app-scope .flatpickr-months {
+  background: linear-gradient(180deg, #1a1a24, #12121a) !important;
+  border-bottom: 1px solid #2a2a36 !important;
+}
+.todo-app-scope .flatpickr-current-month input.cur-year,
+.todo-app-scope .flatpickr-current-month .cur-month {
+  color: var(--text-0) !important;
+  font-weight: 600 !important;
+}
+.todo-app-scope .flatpickr-weekday {
+  color: var(--muted) !important;
+  font-weight: 600 !important;
+}
+.todo-app-scope .flatpickr-day {
+  color: var(--text-0) !important;
+  border-radius: 10px !important;
+}
+.todo-app-scope .flatpickr-day:hover {
+  background: #222235 !important;
+}
+.todo-app-scope .flatpickr-day.today {
+  border: 1px solid rgba(139,110,245,0.5) !important;
+}
+.todo-app-scope .flatpickr-day.selected,
+.todo-app-scope .flatpickr-day.startRange,
+.todo-app-scope .flatpickr-day.endRange {
+  background: var(--accent-1) !important;
+  color: #0f0f14 !important;
+  border-color: var(--accent-1) !important;
+}
+.todo-app-scope .flatpickr-months .flatpickr-prev-month,
+.todo-app-scope .flatpickr-months .flatpickr-next-month {
+  color: var(--muted) !important;
+  fill: var(--muted) !important;
+}
+
+/* Ribbon hide-unless-hover + golden hover glow for top buttons and view toggles */
+nav {
+  opacity: 0.06; /* almost invisible when not hovered */
+  transform: translateY(-8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  /* keep it interactive so user can hover it into view */
+}
+
+nav:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Golden glow on hover for primary top-level controls */
+nav a:hover,
+.view-link:hover,
+.icon-btn:hover,
+.add-task-btn:hover,
+.todo-app-scope .home-btn-fixed:hover,
+.star-btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ffb347) !important;
+  color: #000 !important;
+  box-shadow: 0 10px 30px rgba(255,215,0,0.16),
+              0 0 40px rgba(255,215,0,0.10) inset;
+  transform: translateY(-2px);
+}
+
+/* Ensure active/selected states still read well when using gold hover */
+nav a.active, .view-link.active {
+  background: linear-gradient(90deg, #ffd700, #ffb347);
+  color: #000;
+}
+
+/* Small accessibility: increase hit area for view buttons */
+.view-link {
+  padding: 12px 14px;
+}
