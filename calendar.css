@@ -1,0 +1,143 @@
+/* Calendar Section */
+.calendar-section {
+  background: #0D0D0D;
+  padding: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+/* Views Section */
+.views-section {
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  background: #0D0D0D;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.views-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 12px;
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-links {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.view-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  color: #fff;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.view-link.active {
+  background: #FFB700;
+  color: #000;
+}
+
+.view-link:hover:not(.active) {
+  background: #161616;
+}
+
+/* Calendar Container */
+#calendar-container {
+  background: #161616;
+  padding: 12px;
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#calendar-container.calendar-hidden {
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  border: none;
+}
+
+/* Calendar Header */
+.calendar-toggle {
+  background: #161616;
+  border: none;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Selected Date Display */
+#selected-date-display {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-align: left;
+  padding: 12px;
+  background: #000;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section Headers */
+.calendar-section h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 12px;
+  background: #000;
+  letter-spacing: 0.5px;
+}
+
+/* Dynamic Views Section */
+.calendar-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* When calendar is hidden, views section expands */
+#calendar-container.calendar-hidden ~ .views-section {
+  flex-grow: 1;
+  margin-top: 0;
+}
+
+/* Views Links Container */
+.view-links {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}

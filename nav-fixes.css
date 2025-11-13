@@ -1,0 +1,94 @@
+/* Hide scrollbar for navigation */
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* Allow dropdowns to overflow the fixed nav - some pages set overflow hidden on nav, so use !important to override */
+nav {
+    overflow-y: visible !important;
+}
+
+/* Navigation links */
+nav a {
+    white-space: nowrap;
+    min-width: fit-content;
+    position: relative;
+    overflow: visible;
+}
+
+/* Dropdown container */
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown content */
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: rgba(18, 18, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    margin-top: 8px;
+}
+
+/* Show dropdown on hover */
+nav .dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.2s ease-out;
+}
+
+/* Make dropdown accessible via keyboard (focus-within) */
+nav .dropdown:focus-within .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.2s ease-out;
+}
+
+/* Show dropdown when toggled via JS by adding .open */
+nav .dropdown.open .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.18s ease-out;
+}
+
+/* Make the dropdown toggle visually interactive when used as a button */
+nav .dropdown > a[role="button"] {
+    cursor: pointer;
+}
+
+/* Dropdown links */
+nav .dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+nav .dropdown-content a:hover {
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+    color: #000;
+}
+
+/* Dropdown animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Active dropdown item */
+nav .dropdown-content a.active {
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+    color: #000;
+}
