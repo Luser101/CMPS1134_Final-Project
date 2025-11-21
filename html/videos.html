@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Gallery - CMPS1134</title>
+  <link rel="icon" href="../image/download.jpeg" type="image/icon-x">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/videos.css">
+</head>
+<body>
+  <div class="nav-trigger"></div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="videos.html">Videos</a>
+    <a href="docs.html">Documentation</a>
+    <a href="todo.html">Todo List</a>
+  </nav>
+  <hr>
+
+  <div class="videos-page-container">
+    <section class="videos-header">
+      <h1>Project Video Gallery</h1>
+      <p>Explore videos created by our team members explaining algorithms, networking, programming languages, and operating systems.</p>
+      <div class="video-count">
+        <span id="video-count">0</span> Videos
+      </div>
+    </section>
+
+    <div id="video-container" class="video-gallery">
+      <!-- Videos will be dynamically loaded here -->
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading videos...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container-wide footer-inner">
+      <div> <span id="year"></span> CMPS1134 Project</div>
+      <div class="footer-links">
+        <a href="docs.html">Documentation</a>
+        <a href="team.html">Team</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/videos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

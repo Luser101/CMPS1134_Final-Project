@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus - Todo App</title>
+    <link rel="icon" href="/image/download.jpeg" type="image/icon-x">
+    <link rel="stylesheet" href="../css/focus.css">
+</head>
+<body class="focus-app">
+    <div class="nav-trigger"></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="videos.html">Videos</a>
+        <a href="docs.html">Documentation</a>
+        <a href="todo.html">Todo List</a>
+        <a href="focus.html" class="active">Focus</a>
+    </nav>
+
+    <div class="focus-container">
+        <!-- Header -->
+        <header class="focus-header">
+            <h1>🎯 Focus Mode</h1>
+            <p class="subtitle">Boost your productivity!!!</p>
+        </header>
+
+        <!-- Timer Section -->
+        <section class="timer-section">
+            <div class="timer-card">
+                <h2>Pomodoro Timer</h2>
+                <div class="timer-display">
+                    <span id="timer-minutes">25</span>
+                    <span class="timer-separator">:</span>
+                    <span id="timer-seconds">00</span>
+                </div>
+                
+                <!-- Timer Presets -->
+                <div class="timer-presets">
+                    <button class="preset-btn" data-minutes="5">5 min</button>
+                    <button class="preset-btn" data-minutes="15">15 min</button>
+                    <button class="preset-btn active" data-minutes="25">25 min</button>
+                    <button class="preset-btn" data-minutes="45">45 min</button>
+                </div>
+
+                <!-- Timer Controls -->
+                <div class="timer-controls">
+                    <button id="start-timer" class="btn btn-primary">
+                        <span class="btn-icon">▶</span> Start
+                    </button>
+                    <button id="pause-timer" class="btn btn-secondary" disabled>
+                        <span class="btn-icon">⏸</span> Pause
+                    </button>
+                    <button id="reset-timer" class="btn btn-secondary">
+                        <span class="btn-icon">↻</span> Reset
+                    </button>
+                    <button id="set-reminder-btn" class="btn btn-secondary" title="Set a reminder for this session">
+                        <span class="btn-icon">🔔</span> Reminder
+                    </button>
+                </div>
+
+                <!-- Session Progress -->
+                <div class="session-info">
+                    <div class="session-stat">
+                        <span class="stat-label">Sessions Today</span>
+                        <span class="stat-value" id="sessions-count">0</span>
+                    </div>
+                    <div class="session-stat">
+                        <span class="stat-label">Total Focus Time</span>
+                        <span class="stat-value" id="total-time">0h 0m</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-section">
+            <div class="settings-card">
+                <h2>⚙️ Settings</h2>
+                
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <input type="checkbox" id="sound-notification" checked>
+                        <span>Sound Notification on Timer End</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <input type="checkbox" id="auto-next-session" checked>
+                        <span>Auto-start next session after break</span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="setting-label">
+                        Break Duration:
+                        <input type="number" id="break-duration" min="1" max="30" value="5"> minutes
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label class="setting-label">
+                        <input type="checkbox" id="fullscreen-mode">
+                        <span>Fullscreen Mode (Press F)</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section class="tasks-section">
+            <div class="tasks-card">
+                <h2>📋 Today's Tasks</h2>
+                <div id="focus-tasks-list" class="focus-tasks-list">
+                    <p class="no-tasks-message">No tasks for today. Create some in the Todo List to see them here!</p>
+                </div>
+                <div class="tasks-action-footer">
+                    <a href="todo.html" class="btn btn-primary">+ Add Tasks</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-section">
+            <div class="stats-card">
+                <h2>📊 Your Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="total-sessions">0</div>
+                        <div class="stat-text">Total Sessions</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="this-week">0</div>
+                        <div class="stat-text">This Week</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="longest-streak">0</div>
+                        <div class="stat-text">Longest Streak</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="avg-focus">0</div>
+                        <div class="stat-text">Avg Focus (min)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Todo Button -->
+        <footer class="focus-footer">
+            <a href="todo.html" class="back-link">← Back to Todo List</a>
+        </footer>
+    </div>
+
+    <!-- Timezone Modal -->
+    <div id="timezone-modal" class="timezone-modal">
+        <div class="timezone-modal-content">
+            <div class="timezone-modal-header">
+                <h2>🌍 Confirm Your Timezone</h2>
+                <button class="timezone-modal-close" id="close-timezone-modal">&times;</button>
+            </div>
+            <div class="timezone-modal-body">
+                <p class="timezone-info">We detected your timezone as:</p>
+                <div class="timezone-display">
+                    <span id="detected-timezone" class="timezone-name"></span>
+                    <span id="detected-utc-offset" class="timezone-offset"></span>
+                </div>
+                <p class="timezone-description">This will be used for scheduling reminders and displaying times.</p>
+                <div class="timezone-options">
+                    <div class="timezone-form-group">
+                        <label for="timezone-select">Select your timezone:</label>
+                        <select id="timezone-select" class="timezone-input">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="timezone-modal-footer">
+                <button id="confirm-timezone-btn" class="btn btn-primary">✅ Confirm Timezone</button>
+                <button id="use-detected-timezone-btn" class="btn btn-secondary">🔄 Use Detected</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminder Modal -->
+    <div id="reminder-modal" class="reminder-modal">
+        <div class="reminder-modal-content">
+            <div class="reminder-modal-header">
+                <h2>⏰ Set Session Reminder</h2>
+                <button class="reminder-modal-close" id="close-reminder-modal">&times;</button>
+            </div>
+            <div class="reminder-modal-body">
+                <form id="reminder-form">
+                    <div class="reminder-form-group">
+                        <label for="reminder-date">📅 Date:</label>
+                        <input type="date" id="reminder-date" class="reminder-input" required>
+                    </div>
+                    <div class="reminder-form-group">
+                        <label for="reminder-time">🕒 Time:</label>
+                        <input type="time" id="reminder-time" class="reminder-input" required>
+                    </div>
+                    <div class="reminder-form-group">
+                        <label for="reminder-notification">🔔 Notification Type:</label>
+                        <select id="reminder-notification" class="reminder-input" required>
+                            <option value="browser">Browser Notification</option>
+                            <option value="sound">Sound Alert</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <div class="reminder-form-group">
+                        <label for="reminder-message">💬 Message (Optional):</label>
+                        <textarea id="reminder-message" class="reminder-input reminder-textarea" placeholder="e.g., Time to focus on your work!"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="reminder-modal-footer">
+                <button id="save-reminder-btn" class="btn btn-primary">✅ Set Reminder</button>
+                <button id="cancel-reminder-btn" class="btn btn-secondary">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/focus.js"></script>
+</body>
+</html>

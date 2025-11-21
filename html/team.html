@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the team behind the To-Do List application project">
+  <meta name="theme-color" content="#000000">
+  <title>Team Members</title>
+  <link rel="icon" href="/image/download.jpeg" type="image/icon-x">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/team.css">
+</head>
+<body class="page-with-footer">
+
+    <div class="nav-trigger"></div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="videos.html">Videos</a>
+    <a href="docs.html">Documentation</a>
+    <a href="todo.html">To-Do</a>
+  </nav>
+  <hr>
+
+  <main class="team-container">
+    <section class="team-header">
+      <h1>Meet the Team</h1>
+      <p class="team-subtitle">Meet the talented developers behind the CMPS1134 To-Do List Application</p>
+    </section>
+
+    <div class="team-members-grid">
+      <div class="team-member-card" data-member="adrian">
+        <div class="card-image">
+          <img src="../image/adrian_morris.jpg" alt="Adrian Morris">
+          <div class="card-overlay"></div>
+          <button class="view-details-btn" onclick="openMemberModal('adrian')">View Details</button>
+        </div>
+        <div class="card-content">
+          <h3 class="member-name">Adrian Morris</h3>
+          <p class="member-role">Developer</p>
+          <p class="member-study">Associate in Information Technology</p>
+          <p class="member-interest"> Cyber Security & Networking</p>
+          <div class="member-stats">
+            <span class="stat">Full-Stack</span>
+            <span class="stat">Network</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member-card" data-member="andrew">
+        <div class="card-image">
+          <img src="../image/andrew_faber.jpg" alt="Andrew Faber">
+          <div class="card-overlay"></div>
+          <button class="view-details-btn" onclick="openMemberModal('andrew')">View Details</button>
+        </div>
+        <div class="card-content">
+          <h3 class="member-name">Andrew Faber</h3>
+          <p class="member-role">Developer</p>
+          <p class="member-study">Associate in Information Technology</p>
+          <p class="member-interest"> Software Development</p>
+          <div class="member-stats">
+            <span class="stat">Backend</span>
+            <span class="stat">Fullstack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member-card" data-member="derick">
+        <div class="card-image">
+          <img src="../image/derick_cal.jpg" alt="Derick Cal">
+          <div class="card-overlay"></div>
+          <button class="view-details-btn" onclick="openMemberModal('derick')">View Details</button>
+        </div>
+        <div class="card-content">
+          <h3 class="member-name">Derick Cal</h3>
+          <p class="member-role">Developer</p>
+          <p class="member-study">Associate in Information Technology</p>
+          <p class="member-interest"> Computer Science</p>
+          <div class="member-stats">
+            <span class="stat">Systems</span>
+            <span class="stat">Algorithms</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member-card" data-member="lisandro">
+        <div class="card-image">
+          <img src="../image/lisandro_figeroa.jpg" alt="Lisandro Figueroa">
+          <div class="card-overlay"></div>
+          <button class="view-details-btn" onclick="openMemberModal('lisandro')">View Details</button>
+        </div>
+        <div class="card-content">
+          <h3 class="member-name">Lisandro Figueroa</h3>
+          <p class="member-role">Developer</p>
+          <p class="member-study">Associate in Information Technology</p>
+          <p class="member-interest"> Technology & Innovation</p>
+          <div class="member-stats">
+            <span class="stat">Frontend</span>
+            <span class="stat">UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="screenshots-section">
+      <h2>App Screenshots</h2>
+      <p class="screenshots-subtitle">Explore our applications in action</p>
+      <div class="screenshots-grid">
+        <figure class="screenshot-card">
+          <div class="screenshot-image">
+            <img src="../image/todolist.png" alt="Todo List Application">
+            <div class="screenshot-overlay">
+              <span class="screenshot-label">Todo List App</span>
+            </div>
+          </div>
+          <figcaption>Todo List Application - Task Management</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <div class="screenshot-image">
+            <img src="../image/focus_1.png" alt="Focus App - Screen 1">
+            <div class="screenshot-overlay">
+              <span class="screenshot-label">Focus App</span>
+            </div>
+          </div>
+          <figcaption>Focus App - Home Screen</figcaption>
+        </figure>
+
+        <figure class="screenshot-card">
+          <div class="screenshot-image">
+            <img src="../image/focus_2.png" alt="Focus App - Screen 2">
+            <div class="screenshot-overlay">
+              <span class="screenshot-label">Focus App</span>
+            </div>
+          </div>
+          <figcaption>Focus App - Settings & Configuration</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="key-takeaway">
+      <h2>Key Takeaway</h2>
+      <p class="quote-attribution"><strong>ChatGPT said:</strong></p>
+      <blockquote class="quote-text">
+        Computer science is fundamentally the science of algorithmshow to design them, analyze them, implement them, and understand their limitations. Everything else in the field (hardware, software, networks, AI, data, graphics) revolves around the creation, representation, and application of algorithms to solve real-world problems.
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Member Details Modal -->
+  <div id="memberModal" class="member-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeMemberModal()"></button>
+      <div class="modal-header">
+        <img id="modalImage" src="" alt="Team Member" class="modal-image">
+        <div class="modal-info">
+          <h2 id="modalName"></h2>
+          <p id="modalRole" class="modal-role"></p>
+          <p id="modalStudy" class="modal-study"></p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Interest</h3>
+          <p id="modalInterest"></p>
+        </div>
+        <div class="modal-section">
+          <h3>Specialties</h3>
+          <div id="modalSpecialties" class="specialties-list"></div>
+        </div>
+        <div class="modal-section">
+          <h3>About</h3>
+          <p id="modalAbout"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container-wide footer-inner">
+      <div> <span id="year"></span> CMPS1134 Project</div>
+      <div class="footer-links">
+        <a href="docs.html">Documentation</a>
+        <a href="../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../js/team.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

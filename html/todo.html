@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="icon" href="/image/download.jpeg" type="image/icon-x">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body class="todo-app todo-app-scope">
+    <div class="nav-trigger"></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="videos.html">Videos</a>
+        <a href="docs.html">Documentation</a>
+        <a href="todo.html" class="active">Todo List</a>
+        <a href="focus.html">Focus</a>
+    </nav>
+
+    <div class="app-container">
+        <!-- Sidebar Column -->
+        <aside class="calendar-section">
+            <h2>CALENDAR</h2>
+            <!-- Views Section -->
+            <div class="views-section">
+                <h3>VIEWS</h3>
+                <div class="view-links">
+                        <button id="view-all" class="view-link active">
+                        <span class="view-icon">📋</span>
+                        All Tasks
+                        </button>
+                        <button id="view-important" class="view-link">
+                        <span class="view-icon">⭐</span>
+                            Important Tasks
+                        </button>
+                </div>
+            </div>
+            <!-- Date Picker -->
+            <div class="date-picker-section-sidebar">
+                <h3>TODAY</h3>
+                <div class="date-picker-inputs-sidebar">
+                    <div class="input-group-sidebar">
+                        <label for="todo-date-input">Date:</label>
+                        <input type="date" id="todo-date-input" />
+                    </div>
+                    <div class="input-group-sidebar">
+                        <label for="todo-year-input">Year:</label>
+                        <input type="number" id="todo-year-input" min="1900" max="2100" />
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="task-header">
+                <h1>To-Do List</h1>
+                <div class="task-controls">
+                    <div class="search-box">
+                        <input type="text" id="task-input" class="task-input" placeholder="Add a new task...">
+                    </div>
+                    <button id="add-task" class="add-task-btn">Add Task</button>
+                    <a href="focus.html" class="focus-link-btn" title="Go to Focus Mode">
+                        <span>🎯</span> Focus
+                    </a>
+                </div>
+                <!-- Search, Sort, and Filter Controls -->
+                <div class="task-filter-controls">
+                    <div class="search-filter">
+                        <input type="text" id="task-search-input" class="task-search-input" placeholder="🔍 Search tasks..." />
+                    </div>
+                    <div class="sort-filter-buttons">
+                        <select id="sort-tasks" class="sort-select">
+                            <option value="date-asc">Sort: Date (Earliest)</option>
+                            <option value="date-desc">Sort: Date (Latest)</option>
+                            <option value="priority-high">Sort: Priority (High First)</option>
+                            <option value="alpha">Sort: Alphabetical</option>
+                        </select>
+                        <select id="filter-tasks" class="filter-select">
+                            <option value="all">Filter: All Tasks</option>
+                            <option value="completed">Filter: Completed</option>
+                            <option value="incomplete">Filter: Incomplete</option>
+                            <option value="important">Filter: Important Only</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks for Selected Date -->
+            <section class="task-section">
+                <h3>Tasks on Selected Date <span id="date-task-count" class="task-count"></span></h3>
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be added here dynamically -->
+                </ul>
+            </section>
+
+            <!-- All Tasks -->
+            <section class="task-section">
+                <h3>All Upcoming Tasks <span id="all-tasks-count" class="task-count"></span></h3>
+                <div id="no-tasks-message" class="no-tasks-message" style="display: none;">
+                    <p>📭 No tasks found matching your search or filters.</p>
+                </div>
+                <ul id="all-tasks" class="task-list">
+                    <!-- All tasks will be shown here -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Task Editor Modal -->
+    <div id="task-editor-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Task</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editor-task-text">Task:</label>
+                    <input type="text" id="editor-task-text" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label>Text Style (Select multiple styles):</label>
+                    <div class="text-style-toolbar">
+                        <button type="button" class="style-btn" id="style-normal" title="Normal Text" data-style="normal">Normal</button>
+                        <button type="button" class="style-btn" id="style-bold" title="Bold" data-style="bold"><strong>B</strong></button>
+                        <button type="button" class="style-btn" id="style-italic" title="Italic" data-style="italic"><em>I</em></button>
+                        <button type="button" class="style-btn" id="style-underline" title="Underline" data-style="underline"><u>U</u></button>
+                        <button type="button" class="style-btn" id="style-strikethrough" title="Strikethrough" data-style="strikethrough"><s>S</s></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editor-task-reminder">Set Reminder:</label>
+                    <div class="reminder-section">
+                        <div class="reminder-inputs">
+                            <div class="reminder-input-group">
+                                <label for="editor-reminder-date" class="input-label">📅 Date:</label>
+                                <input type="date" id="editor-reminder-date" class="form-input reminder-input" />
+                            </div>
+                            <div class="reminder-input-group">
+                                <label for="editor-reminder-time" class="input-label">🕒 Time:</label>
+                                <input type="time" id="editor-reminder-time" class="form-input reminder-input" />
+                            </div>
+                        </div>
+                        <div class="reminder-options">
+                            <div class="form-group">
+                                <label for="reminder-frequency" class="input-label">🔁 Repeat:</label>
+                                <select id="reminder-frequency" class="form-input reminder-select">
+                                    <option value="once">Once Only</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="reminder-notification" class="input-label">🔔 Notify via:</label>
+                                <select id="reminder-notification" class="form-input reminder-select">
+                                    <option value="browser">Browser Notification</option>
+                                    <option value="sound">Sound Alert</option>
+                                    <option value="both">Both</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="reminder-actions">
+                            <button id="set-reminder-btn" class="form-btn btn-primary">⏰ Set Reminder</button>
+                            <button id="clear-reminder-btn" class="form-btn btn-secondary" style="display: none;">🗑️ Clear Reminder</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="reminder-display" class="reminder-display"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="editor-save-btn" class="btn-primary">Save Changes</button>
+                <button id="editor-cancel-btn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+            <script src="../js/todo-date-picker.js"></script>
+            <script src="../js/script.js"></script>
+</body>
+</html>
+
